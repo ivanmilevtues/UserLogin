@@ -61,6 +61,7 @@ namespace UserLogin
                 return false;
             }
             currentUserRole = user.Role;
+            Logger.LogActivity("Успешен Login");
             return true;
         }
     }

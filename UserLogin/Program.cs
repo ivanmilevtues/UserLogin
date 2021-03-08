@@ -10,6 +10,55 @@ namespace UserLogin
             Console.WriteLine("!!!!" + msg + "!!!!");
         }
 
+        static void AdminMenu()
+        {
+            Console.WriteLine("Изберете опция:");
+            Console.WriteLine("0: Изход");
+            Console.WriteLine("1: Промяна на роля на потребител");
+            Console.WriteLine("2: Промяна на активност на потребител");
+            Console.WriteLine("3: Списък на потребителите");
+            Console.WriteLine("4: Преглед на лог на активност");
+            Console.WriteLine("5: Преглед на текуща активност");
+
+            int option = Int32.Parse(Console.ReadLine());
+            String username;
+            switch(option)
+            {
+                case 0:
+                    return;
+                case 1:
+                    Console.Write("Потребителско име:");
+                    username = Console.ReadLine();
+                    Console.Write(String.Format("Роля от: {0}[{1}], {2}[{3}], {4}[{5}], {6}[{7}], {8}[{9}]:", 
+                        UserRoles.ADMIN, (int) UserRoles.ADMIN,
+                        UserRoles.ANONYMOUS, (int) UserRoles.ANONYMOUS,
+                        UserRoles.INSPECTOR, (int) UserRoles.INSPECTOR,
+                        UserRoles.PROFESSOR, (int) UserRoles.PROFESSOR,
+                        UserRoles.STUDENT, (int) UserRoles.STUDENT));
+
+                    var role = (UserRoles)Int32.Parse(Console.ReadLine());
+                    UserData.AssignUserRole(username, role);
+                    break;
+                case 2:
+                    Console.Write("Потребителско име:");
+                    username = Console.ReadLine();
+                    Console.Write("Нова крайна дата:");
+                    var date = DateTime.Parse(Console.ReadLine());
+                    UserData.SetUserActiveTo(username, date);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    Logger.ShowLogs();
+                    break;
+                case 5:
+                    Console.WriteLine(Logger.GetCurrentSessionActivities());
+                    break;
+                default:
+                    return;
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Enter username:");
@@ -21,7 +70,7 @@ namespace UserLogin
             User user = null;
             if(validation.ValidateUserInput(ref user))
             {
-                Console.WriteLine(String.Format("Logged in user {0} with password {1} and role {2} ", user.Username, user.Password, user.Role));
+                Console.WriteLine(String.Format("Logged in user {0} ", user.Username));
                 switch(user.Role)
                 {
                     case UserRoles.ANONYMOUS:
@@ -29,6 +78,7 @@ namespace UserLogin
                         break;
                     case UserRoles.ADMIN:
                         Console.WriteLine("You are logged in as administrator user");
+                        AdminMenu();
                         break;
                     case UserRoles.INSPECTOR:
                         Console.WriteLine("You are logged in as inspector user");

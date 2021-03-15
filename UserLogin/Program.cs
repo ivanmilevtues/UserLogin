@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace UserLogin
 {
@@ -49,13 +51,21 @@ namespace UserLogin
                 case 3:
                     break;
                 case 4:
-                    Logger.ShowLogs();
+                    printLines(Logger.GetLogs("admin"));
                     break;
                 case 5:
-                    Console.WriteLine(Logger.GetCurrentSessionActivities());
+                    printLines(Logger.GetCurrentSessionActivities());
                     break;
                 default:
                     return;
+            }
+        }
+
+        static private void printLines(IEnumerable<String> lines)
+        {
+            foreach(var line in lines)
+            {
+                Console.WriteLine(line);
             }
         }
 

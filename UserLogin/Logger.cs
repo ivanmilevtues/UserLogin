@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace UserLogin
@@ -19,30 +20,20 @@ namespace UserLogin
             }
         }
 
-        static public void ShowLogs()
+        static public IEnumerable<String> GetLogs(string filter)
         {
-            StringBuilder sb = new StringBuilder();
+            var logs = new List<String>();
             if(File.Exists("logs.txt"))
             {
-                StreamReader sr = new StreamReader("logs.txt");
-                while(!sr.EndOfStream)
-                {
-                    sb.Append(sr.ReadLine());
-                }
-                sr.Close();
+                logs = (from line in File.ReadLines("logs.txt") where line.Contains(filter) select line).ToList();
             }
-            Console.WriteLine(sb.ToString());
+            return logs;
         }
 
-        static public string GetCurrentSessionActivities()
+        static public IEnumerable<String> GetCurrentSessionActivities()
         {
-            var builder = new StringBuilder();
-            foreach(var activity in currentSessionActivities)
-            {
-                builder.Append(activity);
-            }
+            return currentSessionActivities;
 
-            return builder.ToString();
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace UserLogin
 {
-    class LoginValidation
+    public class LoginValidation
     {
-        public static UserRoles currentUserRole { get; private set; }
+        public static UserRoles CurrentUserRole { get; set; }
 
         private string username;
         private string password;
@@ -25,7 +25,7 @@ namespace UserLogin
 
         public bool ValidateUserInput(ref User user)
         {
-            currentUserRole = UserRoles.ANONYMOUS;
+            CurrentUserRole = UserRoles.ANONYMOUS;
             if(username.Equals(String.Empty))
             {
                 errorMessage = "Не е посочено потребителско име";
@@ -60,7 +60,7 @@ namespace UserLogin
                 actionOnError(errorMessage);
                 return false;
             }
-            currentUserRole = user.Role;
+            CurrentUserRole = user.Role;
             Logger.LogActivity("Успешен Login");
             return true;
         }

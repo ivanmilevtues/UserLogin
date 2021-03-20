@@ -2,7 +2,7 @@
 
 namespace UserLogin
 {
-    class User
+    public class User
     {
         public String Username { get { return _username; } set { _username = value; } }
         public String Password { get { return _password; } set { _password = value; } }

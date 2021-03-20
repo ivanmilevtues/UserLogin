@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UserLogin
 {
-    enum UserRoles
+    public enum UserRoles
     {
         ANONYMOUS, ADMIN, INSPECTOR, PROFESSOR, STUDENT
     }

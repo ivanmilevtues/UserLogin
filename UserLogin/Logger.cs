@@ -6,13 +6,13 @@ using System.Text;
 
 namespace UserLogin
 {
-    static class Logger
+    static public class Logger
     {
         static private List<string> currentSessionActivities = new List<string>();
 
         static public void LogActivity(string activity)
         {
-            string activityLine = DateTime.Now + ";" + LoginValidation.currentUserRole + ";" + LoginValidation.currentUserRole + ";" + activity + "\n";
+            string activityLine = DateTime.Now + ";" + LoginValidation.CurrentUserRole + ";" + LoginValidation.CurrentUserRole + ";" + activity + "\n";
             currentSessionActivities.Add(activityLine);
             if (File.Exists("logs.txt"))
             {

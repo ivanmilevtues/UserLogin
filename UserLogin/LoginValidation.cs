@@ -39,16 +39,16 @@ namespace UserLogin
                 return false;
             }
 
-            if(username.Length < 5)
+            if(username.Length < 4)
             {
-                errorMessage = "Потребителското име е по-късо от 5 символа";
+                errorMessage = "Потребителското име е по-късо от 4 символа";
                 actionOnError(errorMessage);
                 return false;
             }
 
-            if (password.Length < 5)
+            if (password.Length < 4)
             {
-                errorMessage = "Паролата име е по-късо от 5 символа";
+                errorMessage = "Паролата име е по-късо от 4 символа";
                 actionOnError(errorMessage);
                 return false;
             }

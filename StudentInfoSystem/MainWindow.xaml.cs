@@ -20,6 +20,26 @@ namespace StudentInfoSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public Student DisplayStudent
+        {
+            get
+            {
+                return new Student();
+            }
+            set
+            {
+                if(value == null || value.isEmpty())
+                {
+                    clearBoxes();
+                }
+                else
+                {
+                    populateWithStudentData(value);
+                }
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +57,12 @@ namespace StudentInfoSystem
 
         private void Button_Click_Clear(object sender, RoutedEventArgs e)
         {
-            foreach(var textBox in getAllBoxes())
+            clearBoxes();
+        }
+
+        private void clearBoxes()
+        {
+            foreach (var textBox in getAllBoxes())
             {
                 textBox.Text = "";
             }
@@ -62,6 +87,11 @@ namespace StudentInfoSystem
         private void Button_Click_ShowStudent(object sender, RoutedEventArgs e)
         {
             var student = StudentData.TestStudents[0];
+            populateWithStudentData(student);
+        }
+
+        private void populateWithStudentData(Student student)
+        {
             firstName.Text = student.FirstName;
             middleName.Text = student.MiddleName;
             lastName.Text = student.LastName;

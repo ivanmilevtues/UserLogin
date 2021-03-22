@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StudentInfoSystem
 {
-    class Student
+    public class Student
     {
         public String FirstName { get; set; }
         public String MiddleName { get; set; }
@@ -17,14 +17,19 @@ namespace StudentInfoSystem
         public ushort Course { get; set; }
         public ushort Group { get; set; }
         public ushort Stream { get; set; }
+
+        internal bool isEmpty()
+        {
+            return FirstName == null && MiddleName == null && LastName == null && Faculty == null && Speciality == null;
+        }
     }
 
-    enum Status
+    public enum Status
     {
         CERTIFIED, DROPOUT, SEMESTRIAL_GRADUATED
     }
 
-    enum Degree
+    public enum Degree
     {
         BACHELOR, MAJOR, PHD, PROFESSOR
     }

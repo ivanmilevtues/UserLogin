@@ -49,11 +49,9 @@ namespace StudentInfoSystem
 
         private List<TextBox> getAllBoxes()
         {
-            var names = nameStack.Children.OfType<TextBox>().ToList();
-            var administrativeStudent = administrativeStudentInfo.Children.OfType<TextBox>();
-            var studentInfo = studentStack.Children.OfType<TextBox>();
+            var names = personalInformation.Children.OfType<TextBox>().ToList();
+            var administrativeStudent = studentInformation.Children.OfType<TextBox>();
             names.AddRange(administrativeStudent);
-            names.AddRange(studentInfo);
             return names;
         }
 

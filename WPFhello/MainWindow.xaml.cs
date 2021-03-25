@@ -24,6 +24,14 @@ namespace WPFhello
         public MainWindow()
         {
             InitializeComponent();
+
+            var james = new ListBoxItem();
+            var david = new ListBoxItem();
+            james.Content = "James";
+            david.Content = "David";
+            peopleListBox.Items.Add(james);
+            peopleListBox.Items.Add(david);
+            peopleListBox.SelectedItem = james;
         }
 
         void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -72,6 +80,17 @@ namespace WPFhello
             {
                 MessageBox.Show("Полетата за основа и степен не трябва да са празни");
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Oh, hi " + (peopleListBox.SelectedItem as ListBoxItem).Content.ToString());
+        }
+
+        private void ShowMessage(object sender, RoutedEventArgs e)
+        {
+            var otherWindow = new MyMessage();
+            otherWindow.Show();
         }
     }
 }

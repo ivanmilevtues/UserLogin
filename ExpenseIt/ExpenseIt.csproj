@@ -7,19 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\money.jpg" />
-    <None Remove="money.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\UserLogin\UserLogin.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="img\money.jpg">
+    <None Update="money.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="money.jpg" />
+    </None>
   </ItemGroup>
 
 </Project>

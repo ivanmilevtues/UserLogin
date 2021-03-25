@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFhello"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="629" Width="800">
     <Grid>
         <GroupBox Header="Имена" Margin="10,0,0,240" Padding="10">
             <Grid Name="nameGrid">
@@ -21,8 +21,8 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Степенуване" Margin="10,250,10,100" Padding="0">
-            <StackPanel>
+        <GroupBox Header="Степенуване" Margin="10,250,10,227" Padding="0">
+            <StackPanel Height="119">
                 <TextBlock>Основа</TextBlock>
                 <TextBox Name="numberBox"/>
                 <TextBlock>Степен</TextBlock>
@@ -30,5 +30,13 @@
                 <Button Margin="0,20" Click="Button_Click_Calc">Пресметни!</Button>
             </StackPanel>
         </GroupBox>
+        <ListBox Margin="33,391,627,59" Name="peopleListBox">
+            <ListBoxItem Content="Mike"/>
+            <ListBoxItem Content="Lisa"/>
+            <ListBoxItem Content="John"/>
+            <ListBoxItem Content="Mery"/>
+        </ListBox>
+        <Button Content="Greetings" Margin="33,559,627,20" Click="Button_Click_1"/>
+        <Button Content="Show Message" Margin="180,559,400,20" Click="ShowMessage"/>
     </Grid>
 </Window>

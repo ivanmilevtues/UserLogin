@@ -9,40 +9,74 @@
       Title="StudentPage">
 
     <Grid>
-        <GroupBox Header="Лични данни" HorizontalAlignment="Stretch" Margin="10" Height="170" VerticalAlignment="Top">
-            <StackPanel x:Name="nameStack" Width="400px" HorizontalAlignment="Left">
-                <TextBlock>Име:</TextBlock>
-                <TextBox Name="firstName" />
-                <TextBlock>Презиме:</TextBlock>
-                <TextBox Name="middleName" />
-                <TextBlock>Фамилия:</TextBlock>
-                <TextBox Name="lastName" />
-            </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Снимка" Grid.Column="0" Width="210px" Height="310px">
+            <Image Width="200px" Height="300px" Source="/money.jpg"/>
         </GroupBox>
-        <GroupBox Header="Студентска информация" Margin="10,200,10,80" Padding="0, 0, 0, 0">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel x:Name="studentStack" Orientation="Vertical" HorizontalAlignment="Right">
-                    <TextBlock>Факултет:</TextBlock>
-                    <TextBox Name="faculty" />
-                    <TextBlock>Специалност:</TextBlock>
-                    <TextBox Name="speciality" />
-                    <TextBlock>ОКС:</TextBlock>
-                    <TextBox Name="OKS" />
-                    <TextBlock>Статус:</TextBlock>
-                    <TextBox Name="status" />
-                    <TextBlock>Фак. номер:</TextBlock>
-                    <TextBox Name="facultyNumber" />
-                </StackPanel>
-                <StackPanel x:Name="administrativeStudentInfo" Orientation="Vertical" HorizontalAlignment="Left" Margin="100, 0, 0, 0">
-                    <TextBlock>Курс:</TextBlock>
-                    <TextBox Name="course" />
-                    <TextBlock>Поток:</TextBlock>
-                    <TextBox Name="stream" />
-                    <TextBlock>Група:</TextBlock>
-                    <TextBox Name="group" />
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Лични данни" HorizontalAlignment="Stretch" Grid.Row="0">
+                <Grid Name="personalInformation">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">Име:</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="firstName" />
+                    <Label Grid.Row="1" Grid.Column="0">Презиме:</Label>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="middleName" />
+                    <Label Grid.Row="2" Grid.Column="0">Фамилия:</Label>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="lastName" />
+                </Grid>
+
+            </GroupBox>
+            <GroupBox Header="Студентска информация" Grid.Row="1">
+                <Grid x:Name="studentInformation">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">Факултет:</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="faculty" />
+                    <Label Grid.Row="1" Grid.Column="0">Специалност:</Label>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="speciality" />
+                    <Label Grid.Row="2" Grid.Column="0">ОКС:</Label>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="OKS" />
+                    <Label Grid.Row="3" Grid.Column="0">Статус:</Label>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="status" />
+                    <Label Grid.Row="4" Grid.Column="0">Фак. номер:</Label>
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="facultyNumber" />
+                    <Label Grid.Row="0" Grid.Column="2">Курс:</Label>
+                    <TextBox Grid.Row="0" Grid.Column="3" Name="course" />
+                    <Label Grid.Row="1" Grid.Column="2">Поток:</Label>
+                    <TextBox Grid.Row="1" Grid.Column="3" Name="stream" />
+                    <Label Grid.Row="2" Grid.Column="2">Група:</Label>
+                    <TextBox Grid.Row="2" Grid.Column="3" Name="group" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+      
         <Button Content="Clear" HorizontalAlignment="Left" Margin="10,526,0,0" VerticalAlignment="Top" Click="Button_Click_Clear"/>
         <Button Content="Populate with data" HorizontalAlignment="Left" Margin="64,526,0,0" VerticalAlignment="Top" Click="Button_Click_ShowStudent"/>
         <Button Content="Deactivate" HorizontalAlignment="Left" Margin="185,526,0,0" VerticalAlignment="Top" Click="Button_Click_Disable"/>

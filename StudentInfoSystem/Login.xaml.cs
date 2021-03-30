@@ -30,21 +30,29 @@ namespace StudentInfoSystem
             User user = null;
             if(validation.ValidateUserInput(ref user))
             {
-                var page = new StudentPage();
+                Page page = new StudentPage();
                 if(user.Role == UserRoles.STUDENT)
                 {
+                    var studentPage = page as StudentPage;
                     var studentValidation = new StudentValidation();
                     try
                     {
-                        page.Student = studentValidation.GetStudentDataByUser(user);
+                        studentPage.Student = studentValidation.GetStudentDataByUser(user);
                     }
                     catch (ArgumentException ex)
                     {
-                        page.Student = null;
+                        studentPage.Student = null;
                     }
-                } else
+                } 
+                else if (user.Role == UserRoles.ADMIN)
                 {
-                    page.Student = null;
+                    page = new AdminPage();
+                }
+                else
+                {
+                    page = new StudentPage();
+                    MessageBox.Show("Login was unsuccessful");
+                    return;
                 }
                 navigateTo(page);
             }

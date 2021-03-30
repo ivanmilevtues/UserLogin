@@ -27,5 +27,10 @@ namespace UserLogin
             Created = created;
             ActiveDue = activeDue;
         }
+
+        public override string ToString()
+        {
+            return Username + " " + Role;
+        }
     }
 }

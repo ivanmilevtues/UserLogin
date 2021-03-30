@@ -1,0 +1,26 @@
+﻿<Page x:Class="StudentInfoSystem.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentInfoSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListBox Name="usersList" Grid.Column="0" Grid.Row="1">
+        </ListBox>
+        <ListBox Name="studentsLists" Grid.Column="1" Grid.Row="1"/>
+        <Button Grid.Column="0" Grid.Row="0" Click="showUsers">Show Users</Button>
+        <Button Grid.Column="1" Grid.Row="0" Click="showStudents">Show Students</Button>
+    </Grid>
+</Page>

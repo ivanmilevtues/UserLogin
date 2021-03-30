@@ -76,7 +76,8 @@
                 </Grid>
             </GroupBox>
         </Grid>
-      
+
+        <!-- Hide those buttons from the default vision of the UI(Easter egg :P) -->
         <Button Content="Clear" HorizontalAlignment="Left" Margin="10,526,0,0" VerticalAlignment="Top" Click="Button_Click_Clear"/>
         <Button Content="Populate with data" HorizontalAlignment="Left" Margin="64,526,0,0" VerticalAlignment="Top" Click="Button_Click_ShowStudent"/>
         <Button Content="Deactivate" HorizontalAlignment="Left" Margin="185,526,0,0" VerticalAlignment="Top" Click="Button_Click_Disable"/>

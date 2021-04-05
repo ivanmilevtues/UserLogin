@@ -34,13 +34,12 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0">Име:</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="firstName" Text="{Binding Path=FirstName}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="firstName" Text="{Binding Path=Student.FirstName}"/>
                     <Label Grid.Row="1" Grid.Column="0">Презиме:</Label>
-                    <TextBox Grid.Row="1" Grid.Column="1" Name="middleName" Text="{Binding Path=MiddleName}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="middleName" Text="{Binding Path=Student.MiddleName}"/>
                     <Label Grid.Row="2" Grid.Column="0">Фамилия:</Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="lastName" Text="{Binding Path=LastName}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="lastName" Text="{Binding Path=Student.LastName}"/>
                 </Grid>
-
             </GroupBox>
             <GroupBox Header="Студентска информация" Grid.Row="1">
                 <Grid x:Name="studentInformation">
@@ -58,21 +57,21 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0">Факултет:</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="faculty" Text="{Binding Path=Faculty}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="faculty" Text="{Binding Path=Student.Faculty}"/>
                     <Label Grid.Row="1" Grid.Column="0">Специалност:</Label>
-                    <TextBox Grid.Row="1" Grid.Column="1" Name="speciality" Text="{Binding Path=Speciality}"/>
+                    <ListView Grid.Row="1" Grid.Column="1" Name="speciality" ItemsSource="{Binding Specialities}"/>
                     <Label Grid.Row="2" Grid.Column="0">ОКС:</Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="OKS" Text="{Binding Path=StudentDegree}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="OKS" Text="{Binding Path=Student.StudentDegree}"/>
                     <Label Grid.Row="3" Grid.Column="0">Статус:</Label>
-                    <TextBox Grid.Row="3" Grid.Column="1" Name="status" Text="{Binding Path=StudentStatus}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="status" Text="{Binding Path=Student.StudentStatus}"/>
                     <Label Grid.Row="4" Grid.Column="0">Фак. номер:</Label>
-                    <TextBox Grid.Row="4" Grid.Column="1" Name="facultyNumber" Text="{Binding Path=FacultyNumber}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="facultyNumber" Text="{Binding Path=Student.FacultyNumber}"/>
                     <Label Grid.Row="0" Grid.Column="2">Курс:</Label>
-                    <TextBox Grid.Row="0" Grid.Column="3" Name="course" Text="{Binding Path=Course}"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Name="course" Text="{Binding Path=Student.Course}"/>
                     <Label Grid.Row="1" Grid.Column="2">Поток:</Label>
-                    <TextBox Grid.Row="1" Grid.Column="3" Name="stream" Text="{Binding Path=Stream}"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Name="stream" Text="{Binding Path=Student.Stream}"/>
                     <Label Grid.Row="2" Grid.Column="2">Група:</Label>
-                    <TextBox Grid.Row="2" Grid.Column="3" Name="group" Text="{Binding Path=Group}"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" Name="group" Text="{Binding Path=Student.Group}"/>
                 </Grid>
             </GroupBox>
         </Grid>

@@ -25,7 +25,7 @@ namespace StudentInfoSystem
         public override string ToString()
         {
             return FirstName + " " + MiddleName + " " + LastName + " N#:" + FacultyNumber;
-    }
+        }
     }
 
     public enum Status

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,14 @@ namespace StudentInfoSystem
         public StudentPage()
         {
             InitializeComponent();
+            this.DataContext = this;
+            Specialities = new ObservableCollection<string>();
+            Specialities.Add("KSI");
+            Specialities.Add("ITI");
+            Specialities.Add("Telekomunikacii");
         }
+
+        public ObservableCollection<String> Specialities { get; set; }
 
         private Student _student;
 
@@ -44,9 +52,8 @@ namespace StudentInfoSystem
                     {
                         PropertyChanged(this, new PropertyChangedEventArgs("Student"));
                     }
-                    this.DataContext = value;
                     _student = value;
-                    //showStudent(value);
+                    speciality.SelectedItem = Specialities.First(x => x.Equals(value.Speciality))
                 }
                 else
                 {
@@ -117,7 +124,6 @@ namespace StudentInfoSystem
 
             faculty.Text = student.Faculty;
             facultyNumber.Text = student.FacultyNumber;
-            speciality.Text = student.Speciality;
             OKS.Text = student.StudentDegree.ToString();
             status.Text = student.StudentStatus.ToString();
             course.Text = student.Course.ToString();

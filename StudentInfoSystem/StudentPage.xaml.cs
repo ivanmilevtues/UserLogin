@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -17,7 +18,7 @@ namespace StudentInfoSystem
     /// <summary>
     /// Interaction logic for StudentPage.xaml
     /// </summary>
-    public partial class StudentPage : Page
+    public partial class StudentPage : Page, INotifyPropertyChanged
     {
         public StudentPage()
         {
@@ -25,6 +26,8 @@ namespace StudentInfoSystem
         }
 
         private Student _student;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Student Student 
         { 
@@ -37,7 +40,13 @@ namespace StudentInfoSystem
                 if(value != null && !value.isEmpty())
                 {
                     enableBoxes(getAllBoxes());
-                    showStudent(value);
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Student"));
+                    }
+                    this.DataContext = value;
+                    _student = value;
+                    //showStudent(value);
                 }
                 else
                 {

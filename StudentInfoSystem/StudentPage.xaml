@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:StudentInfoSystem"
+      xmlns:local="clr-namespace:StudentInfoSystem" d:DataContext="{d:DesignInstance Type=local:StudentPage}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="StudentPage">
@@ -34,11 +34,11 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0">Име:</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="firstName" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="firstName" Text="{Binding Path=FirstName}"/>
                     <Label Grid.Row="1" Grid.Column="0">Презиме:</Label>
-                    <TextBox Grid.Row="1" Grid.Column="1" Name="middleName" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="middleName" Text="{Binding Path=MiddleName}"/>
                     <Label Grid.Row="2" Grid.Column="0">Фамилия:</Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="lastName" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="lastName" Text="{Binding Path=LastName}"/>
                 </Grid>
 
             </GroupBox>
@@ -58,21 +58,21 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0">Факултет:</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Name="faculty" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="faculty" Text="{Binding Path=Faculty}"/>
                     <Label Grid.Row="1" Grid.Column="0">Специалност:</Label>
-                    <TextBox Grid.Row="1" Grid.Column="1" Name="speciality" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="speciality" Text="{Binding Path=Speciality}"/>
                     <Label Grid.Row="2" Grid.Column="0">ОКС:</Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="OKS" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="OKS" Text="{Binding Path=StudentDegree}"/>
                     <Label Grid.Row="3" Grid.Column="0">Статус:</Label>
-                    <TextBox Grid.Row="3" Grid.Column="1" Name="status" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="status" Text="{Binding Path=StudentStatus}"/>
                     <Label Grid.Row="4" Grid.Column="0">Фак. номер:</Label>
-                    <TextBox Grid.Row="4" Grid.Column="1" Name="facultyNumber" />
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="facultyNumber" Text="{Binding Path=FacultyNumber}"/>
                     <Label Grid.Row="0" Grid.Column="2">Курс:</Label>
-                    <TextBox Grid.Row="0" Grid.Column="3" Name="course" />
+                    <TextBox Grid.Row="0" Grid.Column="3" Name="course" Text="{Binding Path=Course}"/>
                     <Label Grid.Row="1" Grid.Column="2">Поток:</Label>
-                    <TextBox Grid.Row="1" Grid.Column="3" Name="stream" />
+                    <TextBox Grid.Row="1" Grid.Column="3" Name="stream" Text="{Binding Path=Stream}"/>
                     <Label Grid.Row="2" Grid.Column="2">Група:</Label>
-                    <TextBox Grid.Row="2" Grid.Column="3" Name="group" />
+                    <TextBox Grid.Row="2" Grid.Column="3" Name="group" Text="{Binding Path=Group}"/>
                 </Grid>
             </GroupBox>
         </Grid>

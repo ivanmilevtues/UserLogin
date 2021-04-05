@@ -17,10 +17,14 @@ namespace ExpenseIt
     /// </summary>
     public partial class ExpenceReport : Window
     {
-        public ExpenceReport(String name)
+        public ExpenceReport()
         {
             InitializeComponent();
-            userName.Content = name;
+        }
+
+        public ExpenceReport(object data): this()
+        {
+            this.DataContext = data;
         }
     }
 }

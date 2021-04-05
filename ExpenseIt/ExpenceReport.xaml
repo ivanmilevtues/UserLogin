@@ -34,17 +34,21 @@
                 <Label Grid.Row="0" Grid.Column="0">
                     <Bold FontSize="20">Name:</Bold>
                 </Label>
-                <Label Grid.Row="0" Grid.Column="1" FontSize="20" Name="userName"></Label>
+                <Label Grid.Row="0" Grid.Column="1" FontSize="20" Content="{Binding Path=Name}"></Label>
                 <Label Grid.Row="1" Grid.Column="0">
                     <Bold FontSize="20">Department:</Bold>
                 </Label>
-
-                <Label Grid.Row="2" Grid.Column="0" Background="#4E87D4">
-                    <Bold FontSize="20">Expense Type:</Bold>
+                <Label Grid.Row="1" Grid.Column="1" FontSize="20" Content="{Binding Path=Department}"></Label>
+                <Label Grid.Row="3" Grid.Column="0" FontSize="20">
+                    <Bold>Expenses</Bold>
                 </Label>
-                <Label Grid.Row="2" Grid.Column="1" Background="#4E87D4" FontSize="20">
-                    Amount
-                </Label>
+                <DataGrid Grid.Column="1" Grid.Row="3" ItemsSource="{Binding Path=Expenses}" AutoGenerateColumns="False" RowHeaderWidth="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Expense type"
+                                            Binding="{Binding Path=ExpenseType}"/>
+                        <DataGridTextColumn Header="Amount" Binding="{Binding Path=ExpenseAmount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
 
             <Label Grid.Row="0" FontSize="20" HorizontalAlignment="Center">

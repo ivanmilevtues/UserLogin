@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,24 +16,111 @@ namespace ExpenseIt
     /// <summary>
     /// Interaction logic for ExpenseItHome.xaml
     /// </summary>
-    public partial class ExpenseItHome : Window
+    public partial class ExpenseItHome : Window, INotifyPropertyChanged
     {
+        private DateTime _lastChecked;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public DateTime LastChecked
+        {
+            get { return _lastChecked; }
+            set
+            {
+                _lastChecked = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("LastChecked"));
+                }
+            }
+        }
+        public List<Person> ExpenseDataSource { get; set; }
+        public string MainCaptionText { get; set; }
         public ExpenseItHome()
         {
             InitializeComponent();
-            var james = new ListBoxItem();
-            var david = new ListBoxItem();
-            james.Content = "James";
-            david.Content = "David";
-            peopleListBox.Items.Add(james);
-            peopleListBox.Items.Add(david);
-            peopleListBox.SelectedItem = james;
+            InitExpenseDataSource();
+            LastChecked = DateTime.Now;
+            this.DataContext = this;
+        }
+
+        private void InitExpenseDataSource()
+        {
+            ExpenseDataSource = new List<Person>()
+            {
+                new Person()
+                {
+                    Name = "Mike",
+                    Department = "Legal",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Lunch", ExpenseAmount=50},
+                        new Expense() {ExpenseType="Transportation", ExpenseAmount=20},
+                    }
+                },
+                new Person()
+                {
+                    Name = "Lisa",
+                    Department = "Marketing",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Document printing", ExpenseAmount=50},
+                        new Expense() {ExpenseType="Gift", ExpenseAmount=150},
+                    }
+                },
+                new Person()
+                {
+                    Name = "John",
+                    Department = "Engineering",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Magazine subscription", ExpenseAmount=50},
+                        new Expense() {ExpenseType="New Machine", ExpenseAmount=600},
+                        new Expense() {ExpenseType="Software", ExpenseAmount=500},
+                    }
+                },
+                new Person()
+                {
+                    Name = "Mary",
+                    Department = "Finance",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Dinner", ExpenseAmount=100},
+                    }
+                },
+                new Person()
+                {
+                    Name = "Theo",
+                    Department = "Marketing",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Dinner", ExpenseAmount=100},
+                    }
+                },
+                new Person()
+                {
+                    Name = "James",
+                    Department = "Engineering",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Laptop", ExpenseAmount=1000},
+                    }
+                },
+                new Person()
+                {
+                    Name = "David",
+                    Department = "Marketing",
+                    Expenses = new List<Expense>()
+                    {
+                        new Expense() {ExpenseType="Shoes", ExpenseAmount=80},
+                    }
+                },
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var username = (sender as Button).Content as String;
-            var report = new ExpenceReport(username);
+            var report = new ExpenceReport(peopleListBox.SelectedItem);
             Close();
             report.Show();
         }

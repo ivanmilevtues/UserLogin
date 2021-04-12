@@ -38,11 +38,11 @@ namespace StudentInfoSystem
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Student Student 
-        { 
+        {
             get
             {
                 return _student;
-            } 
+            }
             set
             {
                 if(value != null && !value.isEmpty())
@@ -53,14 +53,14 @@ namespace StudentInfoSystem
                         PropertyChanged(this, new PropertyChangedEventArgs("Student"));
                     }
                     _student = value;
-                    speciality.SelectedItem = Specialities.First(x => x.Equals(value.Speciality))
+                    speciality.SelectedItem = Specialities.First(x => x.Equals(value.Speciality));
                 }
                 else
                 {
                     clearBoxes(getAllBoxes());
                     disableBoxes(getAllBoxes());
                 }
-            } 
+            }
         }
 
         private List<TextBox> getAllBoxes()

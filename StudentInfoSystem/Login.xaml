@@ -12,11 +12,11 @@
         <GroupBox Header="Вход" HorizontalAlignment="Stretch" Margin="10" Height="170" VerticalAlignment="Top">
             <StackPanel x:Name="loginStack" Width="400px" HorizontalAlignment="Left">
                 <TextBlock>Потребителско име:</TextBlock>
-                <TextBox Name="username" />
+                <TextBox Text ="{Binding LoginParameters.Username, UpdateSourceTrigger=PropertyChanged}" Name="username" />
                 <TextBlock>Парола:</TextBlock>
-                <TextBox Name="password"/>
+                <TextBox Text="{Binding LoginParameters.Password, UpdateSourceTrigger=PropertyChanged}" Name="password"/>
             </StackPanel>
         </GroupBox>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="32,144,0,0" VerticalAlignment="Top" Click="Login_Click"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="32,144,0,0" VerticalAlignment="Top" Command="{Binding LoginCommand}"/>
     </Grid>
 </Page>

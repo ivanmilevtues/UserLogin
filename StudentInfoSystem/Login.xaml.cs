@@ -22,44 +22,10 @@ namespace StudentInfoSystem
         public Login()
         {
             InitializeComponent();
+            DataContext = new UserLoginViewModel(this);
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            var validation = new LoginValidation(username.Text, password.Text, errorAction);
-            User user = null;
-            if(validation.ValidateUserInput(ref user))
-            {
-                Page page = new StudentPage();
-                if(user.Role == UserRoles.STUDENT)
-                {
-                    var studentPage = page as StudentPage;
-                    var studentValidation = new StudentValidation();
-                    try
-                    {
-                        studentPage.Student = studentValidation.GetStudentDataByUser(user);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        studentPage.Student = null;
-                    }
-                } 
-                else if (user.Role == UserRoles.ADMIN)
-                {
-                    page = new AdminPage();
-                }
-                else
-                {
-                    page = new StudentPage();
-                    MessageBox.Show("Login was unsuccessful");
-                    return;
-                }
-                navigateTo(page);
-            }
-
-        }
-
-        private void navigateTo(Page otherPage)
+        public void NavigateTo(Page otherPage)
         {
             Frame pageFrame = null;
             DependencyObject currParent = VisualTreeHelper.GetParent(this);
@@ -75,11 +41,6 @@ namespace StudentInfoSystem
             {
                 pageFrame.Navigate(otherPage);
             }
-        }
-
-        static private void errorAction(String error)
-        {
-            MessageBox.Show(error, "Проблем при влизането:");
         }
     }
 }

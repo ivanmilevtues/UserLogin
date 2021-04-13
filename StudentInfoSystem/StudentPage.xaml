@@ -13,6 +13,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <TextBlock Name="RedLabel"/>
         <GroupBox Header="Снимка" Grid.Column="0" Width="210px" Height="310px">
             <Image Width="200px" Height="300px" Source="/money.jpg"/>
         </GroupBox>
@@ -81,5 +82,6 @@
         <Button Content="Populate with data" HorizontalAlignment="Left" Margin="64,526,0,0" VerticalAlignment="Top" Click="Button_Click_ShowStudent"/>
         <Button Content="Deactivate" HorizontalAlignment="Left" Margin="185,526,0,0" VerticalAlignment="Top" Click="Button_Click_Disable"/>
         <Button Content="Activate" HorizontalAlignment="Left" Margin="263,526,0,0" VerticalAlignment="Top" Click="Button_Click_Enable"/>
+        <Button Content="Random Command" HorizontalAlignment="Left" Margin="320,526,0,0" VerticalAlignment="Top" Command="{Binding Path=RandomCommand}" CommandParameter="{Binding ElementName=RedLabel}"/>
     </Grid>
 </Page>

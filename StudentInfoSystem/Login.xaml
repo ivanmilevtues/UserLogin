@@ -11,6 +11,7 @@
     <Grid>
         <GroupBox Header="Вход" HorizontalAlignment="Stretch" Margin="10" Height="170" VerticalAlignment="Top">
             <StackPanel x:Name="loginStack" Width="400px" HorizontalAlignment="Left">
+                <TextBlock Name="RedLabel"/>
                 <TextBlock>Потребителско име:</TextBlock>
                 <TextBox Text ="{Binding LoginParameters.Username, UpdateSourceTrigger=PropertyChanged}" Name="username" />
                 <TextBlock>Парола:</TextBlock>
@@ -18,5 +19,6 @@
             </StackPanel>
         </GroupBox>
         <Button Content="Login" HorizontalAlignment="Left" Margin="32,144,0,0" VerticalAlignment="Top" Command="{Binding LoginCommand}"/>
+        <Button Content="Random context" HorizontalAlignment="Left" Margin="142,144,0,0" VerticalAlignment="Top" Command="{Binding RandomCommand}" CommandParameter="{Binding ElementName=RedLabel}"/>
     </Grid>
 </Page>

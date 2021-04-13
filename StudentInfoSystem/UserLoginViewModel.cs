@@ -16,9 +16,16 @@ namespace StudentInfoSystem
             loginWindow = login;
             LoginCommand = new UserLoginCommand(this); 
             LoginParameters = new LoginParameters("", "");
+            RandomCommand = new RandomCommand();
         }
 
         public LoginParameters LoginParameters { get; private set;}
+
+        public ICommand RandomCommand
+        {
+            get;
+            private set;
+        }
 
         public ICommand LoginCommand
         {

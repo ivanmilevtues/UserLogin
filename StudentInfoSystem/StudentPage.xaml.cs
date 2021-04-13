@@ -29,6 +29,7 @@ namespace StudentInfoSystem
             Specialities.Add("KSI");
             Specialities.Add("ITI");
             Specialities.Add("Telekomunikacii");
+            RandomCommand = new RandomCommand();
         }
 
         public ObservableCollection<String> Specialities { get; set; }
@@ -36,6 +37,8 @@ namespace StudentInfoSystem
         private Student _student;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ICommand RandomCommand { get; private set; }
 
         public Student Student 
         {
